@@ -7,19 +7,22 @@ print("Juegos:\n", "1. Piedra, papel o tijera.\n", "2. Adivina el numero.");
 seleccion_juego = input("¿A que juego quieres jugar? ")
 
 def piedraPapelTijera():
+
+	print("\nBienvenido a piedra, papel o tijera, esto es una partida al mejor de 3.")
+
 	opciones = ["PIEDRA", "PAPEL", "TIJERA"]
 
 	puntuacion_jugador = 0
 	puntuacion_maquina = 0
 
-	while puntuacion_jugador - puntuacion_maquina < 2:
+	while abs(puntuacion_jugador - puntuacion_maquina) != 2:
 		opcion_maquina = random.randint(0,2)
-		opcion_jugador = input("\n¿Cual será tu arma? (piedra, papel o tijera): ")
+		opcion_jugador = input("¿Cual será tu arma? (piedra, papel o tijera): ")
 
-		if opcion_jugador.upper() == opciones[0] or opcion_jugador.upper() == opciones[1] or opcion_jugador.upper() == opciones[2]:
-			print("\nMaquina: ", opciones[opcion_maquina], "|| Jugador: ", opcion_jugador.upper(), "\n")
+		if opcion_jugador.upper() == opciones[0] or opcion_jugador.upper() == opciones[1] or opcion_jugador.upper() == opciones[2] or opcion_jugador.upper() == "TIJERAS":
+			print("\nMaquina: ", opciones[opcion_maquina], " || Jugador: ", opcion_jugador.upper(), "\n")
 		else:
-			print("\nerror", opcion_jugador.upper(), "no está en la lista.")
+			print("\nerror ", opcion_jugador.upper(), " no está en la lista.")
 	
 		if opcion_jugador.upper() == opciones[0]:
 			if opcion_maquina == 0:
@@ -30,8 +33,6 @@ def piedraPapelTijera():
 			elif opcion_maquina == 2:
 				print("Ganas")
 				puntuacion_jugador += 1
-			print("\nPuntuacion: Maquina -> ", puntuacion_maquina, "|| Jugador -> ", puntuacion_jugador, "\n")
-			print("=============================================================")
 		elif opcion_jugador.upper() == opciones[1]:
 			if opcion_maquina == 0:
 				print("Ganas")
@@ -41,8 +42,6 @@ def piedraPapelTijera():
 			elif opcion_maquina == 2:
 				print("Pierdes")
 				puntuacion_maquina += 1
-			print("\nPuntuacion: Maquina -> ", puntuacion_maquina, "|| Jugador -> ", puntuacion_jugador, "\n")
-			print("=============================================================")
 		elif opcion_jugador.upper() == opciones[2] or opcion_jugador.upper() == "TIJERAS":
 			if opcion_maquina == 0:
 				print("Pierdes")
@@ -52,10 +51,14 @@ def piedraPapelTijera():
 				puntuacion_jugador += 1
 			elif opcion_maquina == 2:
 				print("Empate")
-			print("\nPuntuacion: Maquina -> ", puntuacion_maquina, "|| Jugador -> ", puntuacion_jugador, "\n")
-			print("=============================================================")
+		print("\nPuntuacion: Maquina -> ", puntuacion_maquina, "|| Jugador -> ", puntuacion_jugador, "\n")
+		print("=============================================================")
 
-	print("\nFin de la partida.")
+	if puntuacion_jugador < puntuacion_maquina:
+		print("\nHas perdido.")
+	else:
+		print("\nHas ganado!!!")
+	print("\nFin de la partida.\n")
 
 
 def adivinaNumero():
