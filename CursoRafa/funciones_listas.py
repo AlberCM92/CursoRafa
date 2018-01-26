@@ -8,7 +8,7 @@ def piedraPapelTijera():
 
 	print("\nBienvenido a piedra, papel o tijera, esto es una partida al mejor de 3.")
 
-	opcionesPPC = ["PIEDRA", "PAPEL", "TIJERA"]
+	opciones = ["PIEDRA", "PAPEL", "TIJERA"]
 
 	puntuacion_jugador = 0
 	puntuacion_maquina = 0
@@ -17,12 +17,12 @@ def piedraPapelTijera():
 		opcion_maquina = random.randint(0,2)
 		opcion_jugador = input("¿Cual será tu arma? (piedra, papel o tijera): ")
 
-		if opcion_jugador.upper() == opcionesPPC[0] or opcion_jugador.upper() == opcionesPPC[1] or opcion_jugador.upper() == opcionesPPC[2] or opcion_jugador.upper() == "TIJERAS":
-			print("\nMaquina: ", opcionesPPC[opcion_maquina], " || Jugador: ", opcion_jugador.upper(), "\n")
+		if opcion_jugador.upper() == opciones[0] or opcion_jugador.upper() == opciones[1] or opcion_jugador.upper() == opciones[2] or opcion_jugador.upper() == "TIJERAS":
+			print("\nMaquina: ", opciones[opcion_maquina], " || Jugador: ", opcion_jugador.upper(), "\n")
 		else:
 			print("\nerror ", opcion_jugador.upper(), " no está en la lista.")
 	
-		if opcion_jugador.upper() == opcionesPPC[0]:
+		if opcion_jugador.upper() == opciones[0]:
 			if opcion_maquina == 0:
 				print("Empate")
 			elif opcion_maquina == 1:
@@ -31,7 +31,7 @@ def piedraPapelTijera():
 			elif opcion_maquina == 2:
 				print("Ganas")
 				puntuacion_jugador += 1
-		elif opcion_jugador.upper() == opcionesPPC[1]:
+		elif opcion_jugador.upper() == opciones[1]:
 			if opcion_maquina == 0:
 				print("Ganas")
 				puntuacion_jugador += 1
@@ -40,7 +40,7 @@ def piedraPapelTijera():
 			elif opcion_maquina == 2:
 				print("Pierdes")
 				puntuacion_maquina += 1
-		elif opcion_jugador.upper() == opcionesPPC[2] or opcion_jugador.upper() == "TIJERAS":
+		elif opcion_jugador.upper() == opciones[2] or opcion_jugador.upper() == "TIJERAS":
 			if opcion_maquina == 0:
 				print("Pierdes")
 				puntuacion_maquina += 1
