@@ -30,10 +30,10 @@ while True:
 			
 	
 	tiempo = pygame.time.get_ticks() / 1000 #segundos
-	velY = velY_ini + acelY*tiempo
 	velX = velX_ini + acelX*tiempo
-	posY = posY + velY + (1/2)*acelY*tiempo**2
+	velY = velY_ini + acelY*tiempo
 	posX = posX + velX + (1/2)*acelX*tiempo**2
+	posY = posY + velY + (1/2)*acelY*tiempo**2
 
 
 
